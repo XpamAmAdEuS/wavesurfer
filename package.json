@@ -1,0 +1,26 @@
+{
+  "name": "@xpamamadeus/wavesurfer",
+  "version": "1.0.0",
+  "description": "wavesurfer",
+  "license": "MIT",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "node build.mjs && tsc --emitDeclarationOnly"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.8.0",
+    "@types/node": "18.11.9",
+    "esbuild": "^0.15.14",
+    "typescript": "^4.9.3"
+  },
+  "engines": {
+    "npm": ">=8.13.2",
+    "node": ">=16.16.0"
+  }
+}
