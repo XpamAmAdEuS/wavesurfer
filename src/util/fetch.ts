@@ -1,4 +1,5 @@
 import Observer from './observer';
+import {FetchOptions} from "../types";
 
 class ProgressHandler {
   private instance: any;
@@ -56,17 +57,14 @@ class ProgressHandler {
   }
 }
 
-export default function fetchFile(options: any) {
+export default function fetchFile(options: FetchOptions) {
   if (!options) {
     throw new Error('fetch options missing');
   } else if (!options.url) {
     throw new Error('fetch url missing');
   }
   const instance = new Observer();
-  const fetchHeaders = new Headers();
   const fetchRequest = new Request(options.url);
-
-  fetchHeaders.append('Authorization', options.authToken);
 
   // add ability to abort
   instance.controller = new AbortController();
@@ -75,7 +73,7 @@ export default function fetchFile(options: any) {
   const responseType = options.responseType || 'json';
   const fetchOptions = {
     method: options.method || 'GET',
-    headers: fetchHeaders,
+    headers: options.fetchHeaders || "",
     mode: options.mode || 'cors',
     credentials: options.credentials || 'same-origin',
     cache: options.cache || 'default',

@@ -74,11 +74,23 @@ export interface WaveSurferParams {
     vertical?: boolean | undefined;
     /** The fill color of the waveform after the cursor. */
     waveColor?: string | CanvasGradient | undefined;
-    authToken: string;
+    fetchHeaders?: Headers;
 }
 
 export interface Styles {
     [styleName: string]: string;
+}
+
+export type FetchOptions = {
+    url: string;
+    responseType: string;
+    fetchHeaders: Headers;
+    method: string;
+    mode: RequestMode | undefined;
+    credentials: RequestCredentials | undefined;
+    cache: RequestCache | undefined;
+    redirect: RequestRedirect | undefined;
+    referrer: string;
 }
 
 export type EventHandler = (...args: any[]) => void;

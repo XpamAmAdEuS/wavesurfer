@@ -392,7 +392,7 @@ export default class WaveSurfer extends util.Observer {
     const options = Object.assign({
       url: url,
       responseType: 'arraybuffer',
-      authToken: this.params.authToken,
+      fetchHeaders: this.params.fetchHeaders,
     });
     const request = util.fetchFile(options);
 
